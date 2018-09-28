@@ -1,0 +1,18 @@
+
+            <form action="#" method="post">
+                <label for="field">Password:</label><br>
+                <input type="password" id="field" data-indicator="pwindicator">
+                <div id="pwindicator">
+                    <div class="bar"></div>
+                    <div class="label"></div>
+                </div>
+            </form>
+            
+                
+    <script src="vendor/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.pwstrength.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        jQuery(function($) { $('#field').pwstrength(); });
+    </script>
+</body>
+</html>

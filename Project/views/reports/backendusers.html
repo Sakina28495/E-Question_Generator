@@ -1,0 +1,74 @@
+<section class="content"  >
+	    
+       	<div class="box box-warning">
+             
+             	<div class="box-header">
+                	<h3 class="box-title">Authorised Users Report</h3>
+                </div>
+                
+                <div class="box-body">
+                	<table id="example" class="table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+               	<th>Contact #</th>
+               	<th>Email</th>
+               	<th>Status</th>
+               	
+               	
+               
+               	
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+               	<th>Contact #</th>
+               	<th>Email</th>
+               	<th>Status</th>
+             
+            </tr>
+        </tfoot>
+    </table>
+                	
+				</div>
+			</div>
+
+    
+<script>
+		
+			
+   $(document).ready(function() {
+     $('#example').DataTable( {
+        "ajax":  "views/reports/backendajax.php",
+       	"columns": [
+            { "data": "fname" },
+            { "data": "lName" },
+            { "data": "mobile" },
+            { "data": "emailId" },
+            { "data": "status" }
+            
+			
+         ],
+		dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+				title: "Registered Users",
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: true
+        } ]
+    } );
+});
+
+	</script>
+</section>

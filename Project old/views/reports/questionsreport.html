@@ -1,0 +1,82 @@
+<section class="content"  >
+	    
+       	<div class="box box-warning">
+             
+             	<div class="box-header">
+                	<h3 class="box-title">Questions Report</h3>
+                </div>
+                
+                <div class="box-body">
+                	<table id="example" class="table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Question</th>
+               	<th>Answer</th>
+               	<th>Option 1</th>
+               	<th>Option 2</th>
+               	<th>Option 3</th>
+               	<th>Option 4</th>
+               	<th>Type</th>
+               	<th>Category</th>
+               	
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>Question</th>
+               	<th>Answer</th>
+               	<th>Option 1</th>
+               	<th>Option 2</th>
+               	<th>Option 3</th>
+               	<th>Option 4</th>
+               	<th>Type</th>
+               	<th>Category</th>
+             
+            </tr>
+        </tfoot>
+    </table>
+                	
+				</div>
+			</div>
+
+    
+<script>
+		
+			
+   $(document).ready(function() {
+     $('#example').DataTable( {
+        "ajax":  "views/reports/questionajax.php",
+       	"columns": [
+            { "data": "qId" },
+            { "data": "question" },
+            { "data": "qanswer" },
+            { "data": "option1" },
+            { "data": "option2" },
+            { "data": "option3" },
+            { "data": "option4" },
+            { "data": "questionType" },
+            { "data": "catName" }
+			
+         ],
+		dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+				title: "Questions",
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: true
+        } ]
+    } );
+});
+
+	</script>
+</section>

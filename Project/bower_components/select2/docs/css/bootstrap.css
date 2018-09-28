@@ -1,0 +1,41 @@
+/*
+Error: Invalid CSS after "...trap/variables"": expected "{", was ";"
+        on line 11 of D:\xampp\htdocs\Project\bower_components\select2\docs\css\bootstrap.scss
+
+6:  * Copyright 2011-2015 Twitter, Inc.
+7:  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+8:  *\/
+9: 
+10: // Core variables and mixins
+11: @import "vendor/bootstrap/variables";
+12: @import "vendor/bootstrap/mixins";
+13: 
+14: // Reset and dependencies
+15: @import "vendor/bootstrap/normalize";
+16: @import "vendor/bootstrap/print";
+
+Backtrace:
+D:\xampp\htdocs\Project\bower_components\select2\docs\css\bootstrap.scss:11
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1179:in `expected'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1115:in `expected'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1110:in `tok!'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:655:in `block'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:649:in `ruleset'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:674:in `block_child'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:664:in `block_contents'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:126:in `stylesheet'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:42:in `parse'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/engine.rb:403:in `_to_tree'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/engine.rb:278:in `render'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:420:in `run'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/base.rb:52:in `parse'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/base.rb:19:in `parse!'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/bin/sass:13:in `<top (required)>'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/bin/sass:23:in `load'
+C:/Program Files/Adobe/Adobe Dreamweaver CC 2017/ruby/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...trap/variables\"\": expected \"{\", was \";\"\A         on line 11 of D:\xampp\htdocs\Project\bower_components\select2\docs\css\bootstrap.scss\A \A 6:  * Copyright 2011-2015 Twitter, Inc.\A 7:  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\A 8:  */\A 9: \A 10: // Core variables and mixins\A 11: @import \"vendor/bootstrap/variables\";\A 12: @import \"vendor/bootstrap/mixins\";\A 13: \A 14: // Reset and dependencies\A 15: @import \"vendor/bootstrap/normalize\";\A 16: @import \"vendor/bootstrap/print\";"; }

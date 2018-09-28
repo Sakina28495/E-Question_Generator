@@ -1,0 +1,114 @@
+
+   	<section class="content"  ng-controller="questionTypes" ng-init="dispCategoryList()"  >
+    	<div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add New Question TYpes</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" >
+              	<form  id="saveSubCategory" name="saveSubCategory" class=" form-horizontal" role="form" autocomplete="off"  novalidate>
+					<div class="form-group no-margin" >
+							<div class="row">
+							
+							<div class="col-md-4">
+									<label for="subCatName" class="control-label" >Question Type</label>
+									<input class="form-control" id="questionType" ng-model="questionType" name="questionType" maxlength="20" />
+									<p ng-show="sCatNameV">
+										  <small style="color:red">Invalid question type</small>
+									  </p>
+									  	
+					   			</div>
+							
+								<div class="col-md-4">
+									<label for="catName" class="control-label" >Choose Category</label>
+									<select 
+										class="form-control" 
+										id="catList" 
+										name="catList" 
+										ng-model="catList"
+										>
+										<option selected value="">--Choose a category--</option>
+										<option ng-repeat="data in data" value="{{data.catId}}">{{data.catName}}</option>
+										</select>
+									<p ng-show="catNameV">
+										  <small style="color:red">Please choose a category</small>
+									  </p>	
+					   		</div>
+									<input type="hidden" ng-model="id">
+								
+								 
+						   		</div>
+						   	
+						   	<div class="row">
+						   	<hr/>
+								<div class="col-md-2">
+										<button type="reset" id="reset" ng-click="reset()" class="btn btn-success form-control ">Cancel</button>
+										
+									</div>
+								<div class="col-md-2">
+										<button ng-click="insertData()" value="{{btnVal}}" class="btn btn-warning form-control ">{{btnName}}</button>
+									
+									</div>
+							</div>
+						   	
+					</div>
+				</form>
+              </div>
+              
+             </div>
+             
+             
+             
+             <div class="box box-warning">
+             
+             	<div class="box-header">
+                	<h3 class="box-title">Category List</h3>
+                </div>
+                
+                <div class="box-body">
+                	
+                	
+						<div class="form-group">
+							<label class="pull-left">Search</label>
+							<input type="text" ng-model="search" class="form-control" placeholder="Search">
+						</div>
+    				
+					
+                	
+				   <table id="categoryTable"  class="table table-bordered table-condensed table-hover" ng-init="dispQuestionTypes()">
+						<thead>
+							<tr>
+								<th class="col-md-5"  ng-click="sort('questionType')">Name
+								<span class="glyphicon sort-icon" ng-show="sortKey=='questionType'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            				</th>
+								
+								<th class="col-md-5"  ng-click="sort('catName')">Category Name
+								<span class="glyphicon sort-icon" ng-show="sortKey=='catName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            
+								</th>
+								<th class="col-md-2">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr dir-paginate="data in data1|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+        
+								<td class="col-md-5">{{data.questionType}}</td>
+								<td class="col-md-5">{{data.catName}}</td>
+								<td class="col-md-5"><button class="btn btn-warning"  ng-click="update(data.qTypeId,data.questionType,data.catId)"><span class="glyphicon glyphicon-edit"></span></button></td>
+							
+							</tr>
+						</tbody>
+				</table>
+			  
+			  <dir-pagination-controls
+				   max-size="5"
+				   direction-links="true"
+				   class="pull-right">
+    		</dir-pagination-controls>
+				  </div>
+				 </div>
+           
+    
+    </section>
+
+    questionType

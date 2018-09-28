@@ -1,0 +1,19 @@
+//connection string
+
+<?php
+    
+    $con=mysqli_connect("db4free.net:3307","christ","sat@christ","satdb");
+    if(!mysqli_connect())
+        {
+            echo mysqli_connect_error();
+        }
+   
+?>
+
+
+
+Link to access the db:
+https://mysql8.db4free.net/phpMyAdmin/index.php
+user name:christ
+password: sat@christ
+database name: satdb

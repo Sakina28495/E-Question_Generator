@@ -1,0 +1,60 @@
+<section class="content"  >
+	    
+       	<div class="box box-warning">
+             
+             	<div class="box-header">
+                	<h3 class="box-title">Category Report</h3>
+                </div>
+                
+                <div class="box-body">
+                	<table id="example" class="table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Category Id</th>
+                <th>Category Name</th>
+               
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Category Id</th>
+                <th>Category Name</th>
+             
+            </tr>
+        </tfoot>
+    </table>
+                	
+				</div>
+			</div>
+
+    
+<script>
+		
+			
+   $(document).ready(function() {
+     $('#example').DataTable( {
+        "ajax":  "views/reports/ajax.php",
+       	"columns": [
+            { "data": "catId" },
+            { "data": "catName" },
+         ],
+		dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+				title: "Category List",
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: true
+        } ]
+    } );
+});
+
+	</script>
+</section>

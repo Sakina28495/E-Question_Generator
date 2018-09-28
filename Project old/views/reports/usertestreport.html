@@ -1,0 +1,70 @@
+<section class="content"  >
+	    
+       	<div class="box box-warning">
+             
+             	<div class="box-header">
+                	<h3 class="box-title">Tests By Users</h3>
+                </div>
+                
+                <div class="box-body">
+                	<table id="example" class="table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Category</th>
+               	<th>Total Questions</th>
+               	<th>Marks</th>
+               	
+               
+               	
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>User</th>
+                <th>Category</th>
+               	<th>Total Questions</th>
+               	<th>Marks</th>
+             
+            </tr>
+        </tfoot>
+    </table>
+                	
+				</div>
+			</div>
+
+    
+<script>
+		
+			
+   $(document).ready(function() {
+     $('#example').DataTable( {
+        "ajax":  "views/reports/usertestajax.php",
+       	"columns": [
+            { "data": "userId" },
+            { "data": "catName" },
+            { "data": "totalQuestions" },
+            { "data": "marks" }
+            
+			
+         ],
+		dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+				title: "Online Test",
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: true
+        } ]
+    } );
+});
+
+	</script>
+</section>

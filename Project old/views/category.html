@@ -1,0 +1,71 @@
+﻿
+	<style>
+	@import 'css/styles.css';
+</style>
+
+<section class="content" ng-controller="category">
+	<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Add Category</button>
+   <br/>
+      <br/>
+       	
+        	<div id="myModal" data-backdrop="static" class="modal fade" role="dialog">
+			  <div class="modal-dialog" >
+
+				<!-- Modal content-->
+				<div class="modal-content">
+				  <div class="modal-header ">
+					<h4 class="modal-title">Add New Category</h4>
+				  </div>
+				  <form role="form" id="saveCategoryForm" name="saveCategory" autocomplete="off" novalidate>
+				  <div class="modal-body">
+				  <div class="form-group" >      
+						<input type="text" id="categoryName" name="catName" ng-model="categoryName" ng-required="true" />
+						<input type="hidden" ng-modal="id">	
+					  <span class="bar"></span>
+						  <label>Category Name</label>
+						  <p ng-show="(isSubmitted && saveCategory.catName.$untouched) || (saveCategory.catName.$touched && saveCategory.catName.$invalid)">
+							  <small style="color:red">Enter a category name</small>
+						  </p>
+					</div>
+					
+					
+				  </div>
+				  <div class="modal-footer">
+				  	 <button type="button" class="btn btn-success col-md-2" ng-click="reset()" data-dismiss="modal">Close</button>
+					   <button ng-click="formSubmission();saveCategory.$valid && insertData()" value="{{btnVal}}" class="btn btn-warning pull-right col-md-2">{{btnName}}</button>
+						
+				  </div>
+				  </form>
+				</div>
+
+			  </div>
+		</div>
+
+    <div class="box box-warning" ng-init="dispCategoryList()">
+        <div class="box-header">
+            <h3 class="box-title">Category List</h3>
+        </div>
+        <div class="box-body" >
+            <table id="categoryTable" class="table table-bordered  table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-10">Category Name</th>
+                        <th class="col-md-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr  ng-repeat="data in datas">
+                	 	<td class="col-md-10">{{data.catName}}</td>
+						<td class="col-md-10"><button class="btn btn-warning"  ng-click="update(data.catId,data.catName)"><span class="glyphicon glyphicon-edit"></span></button></td>
+					</tr>
+                </tbody>
+	
+            </table>
+        </div>
+    </div>
+
+
+</section>
+
+ 
+  

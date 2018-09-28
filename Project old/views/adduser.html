@@ -1,0 +1,162 @@
+	
+
+
+<section class="content" ng-controller="addUser" ng-init="userStat()" >
+		<div class="row">
+          <div class="col-md-6">
+           <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Create Users</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" >
+              	<form  id="" name=""  class=" form-horizontal" role="form" autocomplete="off"  novalidate>
+					<div class="form-group no-margin" >
+							
+					   	
+					   		<div class="row">
+						   	
+								<div class="col-md-6">
+									<label for="fName" class="control-label" >First Name</label>
+									<input type="text" id="fName" ng-model="fName"  class="form-control">
+									<p ng-show="vFName">
+											<small style="color:red">Invalid First Name</small>
+									</p>
+								</div>
+								<div class="col-md-6">
+									<label for="lName" class="control-label">Last Name</label>
+									<input type="text" id="lName" ng-model="lName"  class="form-control">
+									<p ng-show="vLName">
+											<small style="color:red">Invalid Last Name</small>
+									</p>
+								</div>
+							</div>
+							
+							<div class="row">
+						   	
+								<div class="col-md-12">
+									<label for="email" class="control-label">Email</label>
+									<input type="text" id="email" ng-model="email"  class="form-control">
+									<p ng-show="vEmail">
+											<small style="color:red">Invalid Email Address</small>
+									</p>
+								</div>
+							</div>
+							
+							
+							<div class="row">
+								<div class="col-md-6">
+									<label for="mobile"class="control-label">Mobile Number</label>
+									<input type="text" id="mobile" ng-model="mobile" class="form-control" maxlength=10>
+									<p ng-show="vMobile">
+											<small style="color:red">Invalid Mobile Number</small>
+									</p>
+								</div>
+								
+						
+								<div class="col-md-6">
+									<label for="privilege"class="control-label">Privilege Type</label>
+									<select id="privilege" ng-model="privilege" class="form-control">
+										<option value="" selected>--Choose Privilege--</option>
+										<option value="High">High</option>
+										<option value="Medium">Medium</option>
+										<option value="Low">Low</option>
+										<option value="Custom">Custom</option>
+									</select>
+									<p ng-show="vPrivilege">
+											<small style="color:red">Choose a Privilege</small>
+									</p>
+								</div>
+							</div>
+						
+							<hr/>
+							<div class="row">
+						   	
+								<div class="col-md-6">
+										<button type="reset" id="reset" ng-click="reset()" class="btn btn-success form-control ">Cancel</button>
+										
+									</div>
+								<div class="col-md-6">
+										<button ng-click="insertData()" value="{{btnVal}}" class="btn btn-warning form-control ">{{btnName}}</button>
+									
+									</div>
+							</div>
+							
+						   	
+					</div>
+				</form>
+              </div>
+              
+             </div>
+	</div>
+	<div class="row">
+    <div class="col-md-6">
+       	 <div class="col-md-6">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>{{total}}</h3>
+
+              <p>Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-people"></i>
+            </div>
+            <a href="#" class="small-box-footer ">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        
+         <div class="col-md-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{pending}}</h3>
+				<p>Pendition Activations</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-people"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+       </div>
+	</div>
+    	
+    	<div class="row">
+    <div class="col-md-6">
+       	 <div class="col-md-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{active}}</h3>
+
+              <p>Active Users</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-people"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        
+         <div class="col-md-6">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>{{inactive}}</h3>
+				<p>Inactive Users</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-people"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+       </div>
+	</div>
+
+    	</div>
+
+</section>
+
+

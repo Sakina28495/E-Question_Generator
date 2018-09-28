@@ -1,0 +1,179 @@
+﻿	
+
+
+<section class="content" data-ng-controller="questions" ng-init="dispQuestionTypes()" >
+	<div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Questions</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" >
+              	<form  id="saveQuestion" name="saveQuestion"  class=" form-horizontal" role="form" autocomplete="off"  novalidate>
+					<div class="form-group no-margin" >
+							<div class="row">
+								<div class="col-md-4">
+										<label for="qType" class="control-label" >Question Type</label>
+										<select 
+											ng-required="true" 
+											class="form-control" 
+											id="qType" 
+											name="qType" 
+											ng-model="qType"
+											ng-change="change()"
+											
+										>	
+											<option selected value="">--Click Here--</option>
+											<option ng-repeat="data in data | orderBy:'questionType'" value="{{data.qTypeId}}">{{data.questionType}}</option>
+										</select>
+										<p ng-show="qTypeV">
+											<small style="color:red">Select a type</small>
+										 </p>
+								</div>
+							
+								<div class="col-md-4">
+									<label for="qCategory" class="control-label" >Question Category</label>
+									<input type="text" readonly class="form-control" ng-model="qCategory" value="{{qCategory}}" />
+									
+					   			</div>
+									<input type="hidden" ng-model="id">
+									<input type="hidden" ng-model="optId">
+							</div>
+						   	
+						   	<div class="row">
+						   
+								<div class="col-md-12">
+									<label for="question" class="control-label" >Enter the question</label>
+									<textarea id="questions" class="form-control" ng-model="questions"/>
+									<p ng-show="questV">
+											<small style="color:red">Enter a valid question</small>
+										 </p>
+								</div>
+							</div>
+					   	
+					   	
+					   		<div class="row">
+						   	
+								<div class="col-md-3">
+									<label for="option1"class="control-label" >Answer - 1</label>
+									<input type="text" id="option1" class="form-control" ng-model="option1">
+									<p ng-show="opt1V">
+											<small style="color:red">Enter a valid data</small>
+										 </p>
+								</div>
+								<div class="col-md-3">
+									<label for="option2"class="control-label" >Answer - 2</label>
+									<input type="text" id="option2" class="form-control" ng-model="option2">
+									<p ng-show="opt2V">
+											<small style="color:red">Enter a valid data</small>
+										 </p>
+								</div>
+								<div class="col-md-3">
+									<label for="option3"class="control-label" >Answer - 3</label>
+									<input type="text" id="option3" class="form-control" ng-model="option3">
+									<p ng-show="opt3V">
+											<small style="color:red">Enter a valid data</small>
+										 </p>
+								</div>
+								<div class="col-md-3">
+									<label for="option4"class="control-label" >Answer - 4</label>
+									<input type="text" id="option4" class="form-control" ng-model="option4">
+									<p ng-show="opt4V">
+											<small style="color:red">Enter a valid data</small>
+										 </p>
+								</div>
+							</div>
+						   	
+						   	<div class="row">
+								<div class="col-md-3">
+										<label for="qAnswer" class="control-label" >Correct Answer</label>
+										<select 
+											ng-required="true" 
+											class="form-control" 
+											id="qAnswer" 
+											name="qAnswer" 
+											ng-model="qAnswer"
+										>
+											<option selected value="">Choose Correct Answer</option>
+											<option value="1">Answer 1</option>
+											<option value="2">Answer 2</option>
+											<option value="3">Answer 3</option>
+											<option value="4">Amswer 4</option>
+										</select>
+										<p ng-show="opt5V">
+											<small style="color:red">Enter a valid data</small>
+										 </p>
+									</div>
+							</div>
+						   	
+						   	<hr/>
+						   	<div class="row">
+								<div class="col-md-2 pull-right">
+										<button ng-click="insertData()" value="{{btnVal}}" class="btn btn-warning form-control">{{btnName}}</button>
+								</div>
+								<div class="col-md-2 pull-right">
+										<button type="button" id="reset" ng-click="reset()" class="btn btn-success form-control ">Cancel</button>
+								</div>
+								
+							</div>	
+							
+						   	
+					</div>
+				</form>
+              </div>
+              
+             </div>
+    
+       	<div class="box box-warning">
+             
+             	<div class="box-header">
+                	<h3 class="box-title">Questions Details</h3>
+                </div>
+                
+                <div class="box-body">
+                	
+                	
+						<div class="form-group">
+							<label class="pull-left">Search</label>
+							<input type="text" ng-model="search" class="form-control" placeholder="Search">
+						</div>
+    				
+					
+                	
+				   <table id="questionTable"  class="table table-bordered table-condensed table-hover" ng-init="dispQuestions()">
+						<thead>
+							<tr>
+								<th class="col-md-5"  ng-click="sort('question')">Question
+								<span class="glyphicon sort-icon" ng-show="sortKey=='question'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            				</th>
+								
+								<th class="col-md-5"  ng-click="sort('questionType')">Type
+								<span class="glyphicon sort-icon" ng-show="sortKey=='questionType'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            
+								</th>
+								<th class="col-md-2">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr dir-paginate="data in data1|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+        
+								<td class="col-md-5">{{data.question}}</td>
+								<td class="col-md-5">{{data.questionType}}</td>
+								<td class="col-md-5"><button class="btn btn-warning"  ng-click="update(data.qId,data.qType,data.question,data.option1,data.option2,data.option3,data.option4,data.qAnswer,data.optionId)"><span class="glyphicon glyphicon-edit"></span> View Details</button></td>
+							
+							</tr>
+						</tbody>
+				</table>
+			  
+			  <dir-pagination-controls
+				   max-size="5"
+				   direction-links="true"
+				   class="pull-right">
+    		</dir-pagination-controls>
+				  </div>
+				 </div>
+
+    
+
+</section>
+
+
